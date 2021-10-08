@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PrinterApps</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="settings">Settings</string>
+    <string name="company_name">Company name</string>
+    <string name="address">Address</string>
+    <string name="zip_code">ZIP code</string>
+    <string name="vat_number">VAT number</string>
+    <string name="tell">TELL</string>
+    <string name="vat_precentage">VAT percentage</string>
+    <string name="total">Total</string>
+    <string name="vat">VAT</string>
+    <string name="calculate">Calculate</string>
+    <string name="field_req">Field required</string>
+    <string name="total_payment">Total payment</string>
+    <string name="time_date">Time-Date</string>
+    <string name="print">Print</string>
+</resources>
