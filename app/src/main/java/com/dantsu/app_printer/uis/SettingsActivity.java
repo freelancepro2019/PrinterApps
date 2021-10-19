@@ -51,6 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (isDataNull){
                     navigateToMainActivity();
                 }else {
+                    setResult(RESULT_OK);
                     finish();
                 }
             }

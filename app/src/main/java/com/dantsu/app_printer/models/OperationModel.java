@@ -14,38 +14,26 @@ import java.io.Serializable;
 
 public class OperationModel extends BaseObservable implements Serializable {
     private String total;
-    private String vat;
+    private String vat_value;
+    private String vat_percentage;
     private String total_payment;
 
     public ObservableField<String> error_total = new ObservableField<>();
-    public ObservableField<String> error_vat = new ObservableField<>();
 
     public OperationModel() {
         total="";
-        vat="";
+        vat_value="";
         total_payment="0.0";
+        vat_percentage = "0";
     }
 
     public boolean isDataValid(Context context){
-        if (!total.isEmpty()&&!vat.isEmpty()){
+        if (!total.isEmpty()){
             error_total.set(null);
-            error_vat.set(null);
             return true;
         }else {
-            if (total.isEmpty()){
-                error_total.set(context.getString(R.string.field_req));
-            }else {
-                error_total.set(null);
+            error_total.set(context.getString(R.string.field_req));
 
-            }
-
-
-            if (vat.isEmpty()){
-                error_vat.set(context.getString(R.string.field_req));
-            }else {
-                error_vat.set(null);
-
-            }
             return false;
         }
     }
@@ -61,13 +49,13 @@ public class OperationModel extends BaseObservable implements Serializable {
     }
 
     @Bindable
-    public String getVat() {
-        return vat;
+    public String getVat_value() {
+        return vat_value;
     }
 
-    public void setVat(String vat) {
-        this.vat = vat;
-        notifyPropertyChanged(BR.vat);
+    public void setVat_value(String vat_value) {
+        this.vat_value = vat_value;
+        notifyPropertyChanged(BR.vat_value);
     }
 
     @Bindable
@@ -80,9 +68,20 @@ public class OperationModel extends BaseObservable implements Serializable {
         notifyPropertyChanged(BR.total_payment);
     }
 
+    public String getVat_percentage() {
+        return vat_percentage;
+    }
+
+    public void setVat_percentage(String vat_percentage) {
+        this.vat_percentage = vat_percentage;
+    }
+
     public String calculate(){
-        double total = Double.parseDouble(this.total)+Double.parseDouble(this.vat);
-        setTotal_payment(String.valueOf(total));
+        double vatValue = (Double.parseDouble(vat_percentage)/100)*Double.parseDouble(this.total);
+        double totalPayment = Double.parseDouble(this.total)-vatValue;
+        setVat_value(String.valueOf(vatValue));
+        setTotal_payment(String.valueOf(totalPayment));
+
         return total_payment;
     }
 }

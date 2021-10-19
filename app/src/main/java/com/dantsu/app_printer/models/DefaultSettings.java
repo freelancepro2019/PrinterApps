@@ -15,13 +15,11 @@ public class DefaultSettings extends BaseObservable implements Serializable {
     private String company_name;
     private String address;
     private String zip_code;
-    private String vat_num;
     private String vat_percentage;
     private String tell;
     public ObservableField<String> error_company_name = new ObservableField<>();
     public ObservableField<String> error_address = new ObservableField<>();
     public ObservableField<String> error_zip_code = new ObservableField<>();
-    public ObservableField<String> error_vat_num = new ObservableField<>();
     public ObservableField<String> error_vat_percent = new ObservableField<>();
     public ObservableField<String> error_tell = new ObservableField<>();
 
@@ -29,14 +27,12 @@ public class DefaultSettings extends BaseObservable implements Serializable {
         if (!company_name.isEmpty()&&
                 !address.isEmpty()&&
                 !zip_code.isEmpty()&&
-                !vat_num.isEmpty()&&
                 !vat_percentage.isEmpty()&&
                 !tell.isEmpty()
         ){
             error_company_name.set(null);
             error_address.set(null);
             error_zip_code.set(null);
-            error_vat_num.set(null);
             error_vat_percent.set(null);
             error_tell.set(null);
 
@@ -62,11 +58,6 @@ public class DefaultSettings extends BaseObservable implements Serializable {
                 error_zip_code.set(null);
             }
 
-            if (vat_num.isEmpty()){
-                error_vat_num.set(context.getString(R.string.field_req));
-            }else {
-                error_vat_num.set(null);
-            }
             if (vat_percentage.isEmpty()){
                 error_vat_percent.set(context.getString(R.string.field_req));
             }else {
@@ -84,8 +75,7 @@ public class DefaultSettings extends BaseObservable implements Serializable {
         company_name="";
         address="";
         zip_code="";
-        vat_num="";
-        vat_percentage="";
+        vat_percentage="0";
         tell="";
     }
 
@@ -121,16 +111,6 @@ public class DefaultSettings extends BaseObservable implements Serializable {
 
     }
 
-    @Bindable
-    public String getVat_num() {
-        return vat_num;
-    }
-
-    public void setVat_num(String vat_num) {
-        this.vat_num = vat_num;
-        notifyPropertyChanged(androidx.databinding.library.baseAdapters.BR.vat_num);
-
-    }
 
     @Bindable
     public String getVat_percentage() {

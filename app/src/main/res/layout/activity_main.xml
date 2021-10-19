@@ -96,21 +96,45 @@
                         android:text="@string/vat"
                         android:layout_marginTop="8dp"
                         />
-                    <EditText
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:background="@drawable/stroke_gray"
-                        android:singleLine="true"
-                        android:textSize="15sp"
-                        android:textColor="@color/black"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:hint="@string/vat"
-                        android:inputType="numberDecimal"
                         android:layout_marginTop="8dp"
-                        android:text="@={model.vat}"
-                        error="@{model.error_vat}"
-                        />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/stroke_gray"
+                        android:layout_marginBottom="16dp"
+
+                        >
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:singleLine="true"
+                            android:gravity="center_vertical"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:hint="@string/vat"
+                            android:text="@{model.vat_percentage}"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:text="%"
+                            />
+
+                    </LinearLayout>
+
+
 
 
 
@@ -135,6 +159,7 @@
                         android:textSize="15sp"
                         android:layout_marginTop="16dp"
                         android:layout_gravity="center_horizontal"
+                        android:text="@{model.total_payment}"
                         />
 
                     <Button

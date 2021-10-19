@@ -139,41 +139,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    >
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight=".65"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:text="@string/vat_number"
-                        />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1.35"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:gravity="end"
-                        android:textAlignment="viewEnd"
-                        android:text="@{model.vat_num}"
-                        />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -232,7 +198,7 @@
                         android:textStyle="bold"
                         android:gravity="end"
                         android:textAlignment="viewEnd"
-                        android:text="@{model.vat_percentage}"
+                        android:text='@{model.vat_percentage+"%"}'
                         />
 
                 </LinearLayout>
@@ -302,7 +268,7 @@
                         android:textStyle="bold"
                         android:gravity="end"
                         android:textAlignment="viewEnd"
-                        android:text="@{model2.vat}"
+                        android:text="@{model2.vat_value}"
                         />
 
                 </LinearLayout>
